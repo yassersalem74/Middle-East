@@ -40,7 +40,7 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-white"
           >
             <li>
               <a className={navItemClass}>Home</a>
@@ -69,7 +69,7 @@ export default function Navbar() {
         />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-xl">
+        <ul className="menu menu-horizontal px-1 text-xl text-white">
           <li>
             <a className={navItemClass}>Home</a>
           </li>
@@ -107,6 +107,7 @@ export default function Navbar() {
       flex items-center justify-center
       px-6 py-2.5
       rounded-3xl
+      text-lg
       bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C]
       text-white font-medium text-2xl
       transition-all duration-300

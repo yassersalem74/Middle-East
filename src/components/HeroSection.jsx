@@ -8,7 +8,7 @@ export default function HeroSection() {
         justify-center
         rounded-b-[40px]
         overflow-hidden
-        bg-cover bg-center
+        bg-cover bg-center *:overflow-hidden
       "
       style={{ backgroundImage: "url('here-image.png')" }}
     >

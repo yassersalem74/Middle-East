@@ -2,6 +2,7 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import WhyChooseUsSection from './components/WhyChooseUsSection'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
 <div>
    <Navbar></Navbar>
    <HeroSection></HeroSection>
+   <WhyChooseUsSection></WhyChooseUsSection>
 </div>
   )
 }

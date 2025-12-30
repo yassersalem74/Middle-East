@@ -18,7 +18,7 @@ export default function Navbar() {
 `;
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4 py-4 sm:px-12 fixed top-0 z-[1] bg-transparent">
+    <div className="navbar bg-base-100 shadow-sm px-4 py-4 sm:px-12  bg-transparent ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

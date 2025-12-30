@@ -20,7 +20,7 @@ export default function WhyChooseUsSection() {
   ];
 
   return (
-      <section className=" bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900  text-white py-16 px-4 text-center" style={{
+      <section className="  text-white py-16 px-4 text-center" style={{
       background: "linear-gradient(135deg, #0F3D2E 0%, #0B1F2A 50%, #0A1B25 100%)",
     }}>
         <h2 className="text-4xl font-bold mb-4">Why Choose Us ?</h2>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function GetInTouchSection() {
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+    <section className="py-16 ">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">

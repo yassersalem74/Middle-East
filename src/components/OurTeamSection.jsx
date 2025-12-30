@@ -2,7 +2,7 @@ import React from "react";
 
 export default function OurTeamSection() {
   return (
-    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 py-16 px-4 md:px-8">
+    <section className="py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">

@@ -1,7 +1,7 @@
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 py-16 px-6 md:px-12">
+    <section className="relative overflow-hidden  py-16 px-6 md:px-12">
       <div className="flex justify-evenly flex-wrap lg:flex-nowrap gap-12 items-center">
         {/* Left Content */}
         <div className="text-white flex flex-col justify-between content-between ">

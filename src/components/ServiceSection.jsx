@@ -2,11 +2,11 @@ import React from "react";
 
 export default function ServiceSection() {
   return (
-    <section className="pt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 ">
+    <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 ">
       <div className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Why Choose Us ?</h2>
+        <h2 className="text-4xl font-bold mb-4">Industries We Serve</h2>
         <p className="text-gray-400 mb-12 text-2xl">
-          What sets Middle East Egypt apart in the chemical industry
+          Serving diverse industries across multiple applications
         </p>
       </div>
 

@@ -5,6 +5,8 @@ import HeroSection from './components/HeroSection'
 import WhyChooseUsSection from './components/WhyChooseUsSection'
 import AboutSection from './components/AboutSection'
 import ServiceSection from './components/ServiceSection'
+import OurTeamSection from './components/OurTeamSection'
+import GetInTouchSection from './components/GetInTouchSection'
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
    <WhyChooseUsSection></WhyChooseUsSection>
    <AboutSection></AboutSection>
    <ServiceSection></ServiceSection>
+   <OurTeamSection></OurTeamSection>
+   <GetInTouchSection></GetInTouchSection>
 </div>
   )
 }

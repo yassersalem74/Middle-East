@@ -5,12 +5,15 @@ export default function Footer() {
     <footer
       className="
         bg-gradient-to-r from-[#3C575D] to-[#2c6e49]
-        border border-[#3C575D]
-        rounded-t-3xl
-        overflow-hidden
+    border border-[#3C575D]
+
       "
     >
-      <div className="text-white py-12 px-6">
+      <div className="text-white py-12 px-6
+          rounded-t-3xl
+    overflow-hidden
+    [box-shadow:0px_4px_16px_0px_#3C575D_inset]
+    [border-top:1px_solid_#3C575D]">
         <div
           className="
             grid gap-10

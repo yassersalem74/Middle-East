@@ -7,6 +7,7 @@ import AboutSection from './components/AboutSection'
 import ServiceSection from './components/ServiceSection'
 import OurTeamSection from './components/OurTeamSection'
 import GetInTouchSection from './components/GetInTouchSection'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
    <ServiceSection></ServiceSection>
    <OurTeamSection></OurTeamSection>
    <GetInTouchSection></GetInTouchSection>
+   <Footer></Footer>
 </div>
   )
 }

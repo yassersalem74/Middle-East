@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import WhyChooseUsSection from './components/WhyChooseUsSection'
 import AboutSection from './components/AboutSection'
+import ServiceSection from './components/ServiceSection'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
    <HeroSection></HeroSection>
    <WhyChooseUsSection></WhyChooseUsSection>
    <AboutSection></AboutSection>
+   <ServiceSection></ServiceSection>
 </div>
   )
 }

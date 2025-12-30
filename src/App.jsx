@@ -12,9 +12,7 @@ import Footer from './components/Footer'
 function App() {
 
   return (
-<div className="min-h-screen" style={{
-      background: "linear-gradient(135deg, #0F3D2E 0%, #0B1F2A 50%, #0A1B25 100%)",
-    }}>
+<div className="min-h-screen   bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900" >
    <Navbar></Navbar>
    <HeroSection></HeroSection>
    <WhyChooseUsSection></WhyChooseUsSection>

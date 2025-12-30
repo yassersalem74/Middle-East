@@ -4,8 +4,10 @@ export default function Footer() {
   return (
     <footer
       className="
-        bg-gradient-to-r from-[#3C575D] to-[#2c6e49]
+       bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900
     border border-[#3C575D]
+    overflow-hidden
+          rounded-t-3xl
 
       "
     >

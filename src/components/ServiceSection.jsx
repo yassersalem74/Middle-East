@@ -4,7 +4,7 @@ export default function ServiceSection() {
   return (
     <section className="py-16 ">
       <div className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Industries We Serve</h2>
+        <h2 className="text-4xl font-bold mb-4 text-white">Industries We Serve</h2>
         <p className="text-gray-400 mb-12 text-2xl">
           Serving diverse industries across multiple applications
         </p>

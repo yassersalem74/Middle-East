@@ -28,7 +28,11 @@ export default function GetInTouchSection() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 bg-[#3C575D] rounded-xl p-4"
+                className="flex items-center gap-4 bg-[#3C575D] rounded-xl p-4
+                   duration-500
+                  hover:bg-gradient-to-l
+                  hover:from-[#05b24c]
+                  hover:to-[#3c575d]"
               >
                 <img
                   src={item.icon}

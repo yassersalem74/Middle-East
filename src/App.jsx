@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs";
 // import Download from "./pages/Download";
 // import Contact from "./pages/Contact";
 import "./App.css";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -19,11 +20,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
-          {/* <Route path="/products" element={<Products />} />
-          <Route path="/industries" element={<Industries />} />
-          <Route path="/exhibition" element={<Exhibition />} />
-          <Route path="/download" element={<Download />} />
-          <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/products" element={<Products />} />
+          {/* <Route path="/industries" element={<Industries />} /> */}
+          {/* <Route path="/exhibition" element={<Exhibition />} /> */}
+          {/* <Route path="/download" element={<Download />} /> */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
         </Routes>
       </main>
       

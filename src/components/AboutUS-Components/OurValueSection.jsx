@@ -68,7 +68,7 @@ const ValuesSection = () => {
   ];
 
   return (
-    <div className="py-24">
+    <section className="py-24">
       <h2 className="text-4xl text-center pb-12 font-bold mb-4  text-white">
         Why Choose Us ?
       </h2>
@@ -126,7 +126,7 @@ const ValuesSection = () => {
           <div className="text-[#CDDBEB]">Chairman & CEO</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

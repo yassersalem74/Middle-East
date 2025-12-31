@@ -68,7 +68,11 @@ const ValuesSection = () => {
   ];
 
   return (
-    <div className="py-12">
+    <div className="py-24">
+      <h2 className="text-4xl text-center pb-12 font-bold mb-4  text-white">
+        Why Choose Us ?
+      </h2>
+
       <div className="flex flex-wrap justify-evenly gap-6">
         {cardsData.map((card, index) => (
           <ValueCard
@@ -78,6 +82,49 @@ const ValuesSection = () => {
             description={card.description}
           />
         ))}
+      </div>
+
+      <div
+        className="
+    my-20
+    mx-auto
+    w-4/5
+    px-6 sm:px-12
+    py-12 sm:py-20
+    flex
+    flex-col md:flex-row
+    gap-6
+    items-center
+    bg-gradient-to-r from-[#044B9D] to-[#05B24C]
+    border-l-[8px] border-white
+    backdrop-blur-[11px]
+    rounded-2xl
+  "
+      >
+        {/* Image (fixed size) */}
+        <div className="flex justify-center items-center shrink-0">
+          <img
+            className="w-[200px] h-[150px] object-contain"
+            src="value-person.png"
+            alt="value-person"
+          />
+        </div>
+
+        {/* Text */}
+        <div className="text-center md:text-left">
+          <p className="text-white text-xl leading-relaxed">
+            “Our success is built on trust, consistency, and long-term
+            partnerships. At Middle East Egypt, we are committed to delivering
+            reliable chemical solutions that support our clients’ growth and
+            strengthen the industries we serve.”
+          </p>
+
+          <h2 className="mt-4 text-2xl font-semibold text-white">
+            Sayed Abd Elgwad
+          </h2>
+
+          <div className="text-[#CDDBEB]">Chairman & CEO</div>
+        </div>
       </div>
     </div>
   );

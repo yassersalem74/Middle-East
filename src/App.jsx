@@ -12,7 +12,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F3D2E] via-[#0B1F2A] to-[#0A1B25] text-white">
+    <div className="min-h-screen bg-gradient-to-r from-[#0F3D2E] via-[#0B1F2A] to-[#0A1B25] text-white">
       <Navbar />
       
       <main className="pt-16">

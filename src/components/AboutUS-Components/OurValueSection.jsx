@@ -68,7 +68,7 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="pt-24 pb-6">
+    <div className="pt-24 ">
       <h2 className="text-4xl text-center pb-12 font-bold mb-4  text-white">
         Why Choose Us ?
       </h2>
@@ -84,6 +84,7 @@ const ValuesSection = () => {
         ))}
       </div>
 
+      {/* Quote Section */}
       <div className="mt-20 mx-auto w-full sm:w-4/5 px-4 sm:px-8">
         <div
           className="
@@ -138,7 +139,7 @@ const ValuesSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

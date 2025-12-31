@@ -25,7 +25,7 @@ const journeyData = [
 
 export default function OurJourney() {
   return (
-    <section className="py-24 bg-gradient-to-r from-[#1f4d3f] to-[#0b1f2a] text-white">
+    <section className="py-24  text-white">
       {/* Heading */}
       <h2 className="text-4xl text-center font-bold mb-4">Our Journey</h2>
       <p className="text-[#B4C9E2] text-xl text-center mb-12">

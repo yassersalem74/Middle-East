@@ -68,7 +68,7 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="py-24">
+    <section className="pt-24 pb-6">
       <h2 className="text-4xl text-center pb-12 font-bold mb-4  text-white">
         Why Choose Us ?
       </h2>

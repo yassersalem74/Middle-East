@@ -32,7 +32,7 @@ export default function WhyChooseUsSection() {
               key={index}
               className="relative h-[460px] w-[343px] rounded-2xl transition-all duration-300 group"
             >
-              <div className="h-full w-full bg-gray-900 rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-[#E6EDF5]/50 group-hover:border-transparent">
+              <div className="h-full bg-transparent  w-full bg-gray-900 rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-[#E6EDF5]/50 group-hover:border-transparent">
                 <div className="mb-6 overflow-hidden rounded-full">
                   <img
                     src={card.image}

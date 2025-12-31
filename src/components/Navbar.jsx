@@ -1,24 +1,17 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
-  const navItemClass = `
-  relative
-  transition-colors duration-300
-  hover:text-[#6893C4]
-  after:content-['']
-  after:absolute
-  after:left-0
-  after:-bottom-1
-  after:h-[2px]
-  after:w-0
-  after:bg-[#6893C4]
-  after:transition-all
-  after:duration-300
-  hover:after:w-full
-`;
+  const navItemClass = ({ isActive }) =>
+    `relative transition-colors duration-300 ${
+      isActive ? "text-[#6893C4]" : "text-white"
+    } hover:text-[#6893C4] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-[#6893C4] after:transition-all after:duration-300 ${
+      isActive ? "after:w-full" : "after:w-0 hover:after:w-full"
+    }`;
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4 py-4 sm:px-12  bg-transparent ">
+    <nav className="navbar  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4 py-4 sm:px-12  fixed top-0 left-0 right-0 z-50">
+      {/* ===== Left / Mobile ===== */}
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,96 +22,107 @@ export default function Navbar() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-white"
-          >
+
+          {/* Mobile Menu */}
+          <ul className="menu menu-sm dropdown-content bg-slate-900 rounded-box z-50 mt-3 w-52 p-2 shadow">
             <li>
-              <a className={navItemClass}>Home</a>
+              <NavLink to="/" className={navItemClass}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <a className={navItemClass}>About Us</a>
+              <NavLink to="/about" className={navItemClass}>
+                About Us
+              </NavLink>
             </li>
             <li>
-              <a className={navItemClass}>Products</a>
+              <NavLink to="/products" className={navItemClass}>
+                Products
+              </NavLink>
             </li>
             <li>
-              <a className={navItemClass}>Industries</a>
+              <NavLink to="/industries" className={navItemClass}>
+                Industries
+              </NavLink>
             </li>
             <li>
-              <a className={navItemClass}>Exhibition</a>
+              <NavLink to="/exhibition" className={navItemClass}>
+                Exhibition
+              </NavLink>
             </li>
             <li>
-              <a className={navItemClass}>Download</a>
+              <NavLink to="/download" className={navItemClass}>
+                Download
+              </NavLink>
             </li>
           </ul>
         </div>
-        <img
-          src="middle-logo.png"
-          alt="middle-east-logo"
-          className="hidden sm:inline-block"
-        />
+        
+        {/* Logo */}
+        <NavLink to="/" className="flex items-center">
+          <img
+            src="middle-logo.png"
+            alt="middle-east-logo"
+            className="hidden sm:inline-block h-10"
+          />
+        </NavLink>
       </div>
+
+      {/* ===== Center / Desktop ===== */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-xl text-white">
+        <ul className="menu menu-horizontal px-1 text-xl gap-6">
           <li>
-            <a className={navItemClass}>Home</a>
+            <NavLink to="/" className={navItemClass}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <a className={navItemClass}>About Us</a>
+            <NavLink to="/about" className={navItemClass}>
+              About Us
+            </NavLink>
           </li>
           <li>
-            <a className={navItemClass}>Products</a>
+            <NavLink to="/products" className={navItemClass}>
+              Products
+            </NavLink>
           </li>
           <li>
-            <a className={navItemClass}>Industries</a>
+            <NavLink to="/industries" className={navItemClass}>
+              Industries
+            </NavLink>
           </li>
           <li>
-            <a className={navItemClass}>Exhibition</a>
+            <NavLink to="/exhibition" className={navItemClass}>
+              Exhibition
+            </NavLink>
           </li>
           <li>
-            <a className={navItemClass}>Download</a>
+            <NavLink to="/download" className={navItemClass}>
+              Download
+            </NavLink>
           </li>
         </ul>
       </div>
+
+      {/* ===== Right / CTA ===== */}
       <div className="navbar-end">
-        <button
-          className="
-    relative
-    p-[2px]
-    rounded-3xl
-    bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C]
-    transition-all duration-300
-    hover:bg-none
-    cursor-pointer
-  "
+        <NavLink
+          to="/contact"
+          className="relative p-[2px] rounded-3xl bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C] transition-all duration-300 hover:shadow-[0_0_12px_rgba(5,178,76,0.6)]"
         >
-          <span
-            className="
-      flex items-center justify-center
-      px-6 py-2.5
-      rounded-3xl
-      text-lg
-      bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C]
-      text-white font-medium text-2xl
-      transition-all duration-300
-      hover:bg-transparent
-      hover:shadow-[0_0_12px_rgba(5,178,76,0.6)]
-    "
-          >
+          <span className="flex items-center justify-center px-6 py-2.5 rounded-3xl text-white font-medium text-lg bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C] transition-all duration-300 hover:bg-transparent">
             Contact Us
           </span>
-        </button>
+        </NavLink>
       </div>
-    </div>
+    </nav>
   );
 }

@@ -74,7 +74,7 @@ const WhyOurProducts = () => {
   ];
 
   return (
-    <section className="py-24 ">
+    <section className="py-12 ">
       <h2 className="text-4xl text-center font-bold mb-4 text-white">
        Why Our Products ?
       </h2>

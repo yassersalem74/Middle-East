@@ -8,7 +8,7 @@ import Products from "./pages/Products";
 import ContactUS from "./pages/ContactUS";
 import IndustriesPage from "./pages/IndustriesPage";
 import Exhibition from "./pages/Exhibition";
-
+import ScrollToTop from "./components/ScrollToTop";
 
 // import Download from "./pages/Download";
 
@@ -16,8 +16,9 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#0F3D2E] via-[#0B1F2A] to-[#0A1B25] text-white">
       <Navbar />
-      
+
       <main className="pt-16">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
@@ -28,7 +29,7 @@ function App() {
           <Route path="/contact" element={<ContactUS />} />
         </Routes>
       </main>
-      
+
       <Footer />
     </div>
   );

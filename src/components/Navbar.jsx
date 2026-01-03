@@ -72,7 +72,7 @@ export default function Navbar() {
           <img
             src="middle-logo.png"
             alt="middle-east-logo"
-            className="hidden sm:inline-block h-10"
+            className="hidden sm:inline-block h-14"
           />
         </NavLink>
       </div>

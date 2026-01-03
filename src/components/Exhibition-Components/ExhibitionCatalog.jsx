@@ -41,7 +41,7 @@ const catalogData = [
 
 export default function ExhibitionCatalog() {
   return (
-    <section className="py-12 px-4 sm:px-8 lg:px-16 bg-[#1E2B2A]">
+    <section className="py-12 px-4 sm:px-8 lg:px-16 ">
       {/* Title */}
       <div className="mb-12">
         <h1 className="text-white text-4xl font-bold pb-2 border-b border-[#d9e2ec80]">

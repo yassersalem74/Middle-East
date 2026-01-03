@@ -4,38 +4,32 @@ export default function IndustriesCategory() {
   const items = [
     {
       title: "Paints & Coatings",
-      desc:
-        "High-performance raw materials used in decorative, industrial, and protective coatings to ensure durability, finish quality, and consistency.",
+      desc: "High-performance raw materials used in decorative, industrial, and protective coatings to ensure durability, finish quality, and consistency.",
       img: "/paints-coatings.png",
     },
     {
       title: "Construction",
-      desc:
-        "Specialty chemicals that enhance the performance of concrete, adhesives, waterproofing systems, and construction solutions.",
+      desc: "Specialty chemicals that enhance the performance of concrete, adhesives, waterproofing systems, and construction solutions.",
       img: "/Construction.png",
     },
     {
       title: "Ink Industry",
-      desc:
-        "Raw materials designed to support ink formulation for printing, packaging, and industrial applications with reliable color and performance.",
+      desc: "Raw materials designed to support ink formulation for printing, packaging, and industrial applications with reliable color and performance.",
       img: "/Inkndustry.png",
     },
     {
       title: "Foam Industry",
-      desc:
-        "Chemical solutions used in flexible and rigid foam applications, offering efficiency, durability, and consistent quality.",
+      desc: "Chemical solutions used in flexible and rigid foam applications, offering efficiency, durability, and consistent quality.",
       img: "/Foam-Industry.png",
     },
     {
       title: "Plastics",
-      desc:
-        "Chemical raw materials that support plastic manufacturing processes, improving strength, flexibility, and product performance.",
+      desc: "Chemical raw materials that support plastic manufacturing processes, improving strength, flexibility, and product performance.",
       img: "/Plastics.png",
     },
     {
       title: "Adhesives",
-      desc:
-        "Reliable raw materials for adhesive formulations used across packaging, construction, automotive, and industrial sectors.",
+      desc: "Reliable raw materials for adhesive formulations used across packaging, construction, automotive, and industrial sectors.",
       img: "/Adhesives.png",
     },
   ];
@@ -51,9 +45,12 @@ export default function IndustriesCategory() {
             rounded-2xl
             bg-[#3C575D4D]
             px-6 py-12
-            flex flex-row md:flex-col
+            flex flex-col
             gap-12
             overflow-hidden
+              hover:bg-[#15cc63]
+                    transition-all
+              duration-500
           "
         >
           {/* CARD GRADIENT BORDER */}
@@ -69,10 +66,10 @@ export default function IndustriesCategory() {
               group-hover:scale-100
               transition-all
               duration-500
+              
             "
             style={{
-              background:
-                "linear-gradient(90deg, #05B24C, #044B9D, #05B24C)",
+              background: "linear-gradient(90deg, #0d361e, #044B9D, #05B24C)",
               WebkitMask:
                 "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
               WebkitMaskComposite: "xor",
@@ -95,8 +92,7 @@ export default function IndustriesCategory() {
                 duration-500
               "
               style={{
-                background:
-                  "linear-gradient(90deg, #05B24C, #044B9D, #05B24C)",
+                background: "linear-gradient(90deg, #0d361e, #044B9D, #05B24C)",
                 WebkitMask:
                   "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                 WebkitMaskComposite: "xor",
@@ -116,9 +112,7 @@ export default function IndustriesCategory() {
             <h3 className="text-white font-semibold text-[32px] mb-4">
               {item.title}
             </h3>
-            <p className="text-white font-normal text-[24px]">
-              {item.desc}
-            </p>
+            <p className="text-white font-normal text-[24px]">{item.desc}</p>
           </div>
         </div>
       ))}

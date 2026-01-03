@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function IndustiesCategory() {
+export default function IndustriesCategory() {
   const items = [
     {
       title: "Paints & Coatings",

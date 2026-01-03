@@ -59,11 +59,11 @@ export default function Navbar() {
                 Exhibition
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/download" className={navItemClass}>
                 Download
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -105,11 +105,11 @@ export default function Navbar() {
               Exhibition
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/download" className={navItemClass}>
               Download
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -119,7 +119,7 @@ export default function Navbar() {
           to="/contact"
           className="relative p-[2px] rounded-3xl bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C] transition-all duration-300 hover:shadow-[0_0_12px_rgba(5,178,76,0.6)]"
         >
-          <span className="flex items-center justify-center px-6 py-2.5 rounded-3xl text-white font-medium text-lg">
+          <span className="flex items-center justify-center px-6 py-2.5 rounded-3xl text-white font-medium text-[16px]">
             Contact Us
           </span>
         </NavLink>

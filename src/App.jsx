@@ -7,8 +7,7 @@ import AboutUs from "./pages/AboutUs";
 import Products from "./pages/Products";
 import ContactUS from "./pages/ContactUS";
 import IndustriesPage from "./pages/IndustriesPage";
-// import Industries from "./pages/Industries.JSX";
-// import Industries from "./pages/Industries";
+import Exhibition from "./pages/Exhibition";
 
 
 // import Download from "./pages/Download";
@@ -24,8 +23,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
           <Route path="/industries" element={<IndustriesPage />} />
-          {/* <Route path="/industries" element={<Industries />} /> */}
-          {/* <Route path="/exhibition" element={<Exhibition />} /> */}
+          <Route path="/exhibition" element={<Exhibition />} />
           {/* <Route path="/download" element={<Download />} /> */}
           <Route path="/contact" element={<ContactUS />} />
         </Routes>

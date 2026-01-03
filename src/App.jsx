@@ -1,15 +1,13 @@
 import { Routes, Route } from "react-router-dom";
+import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
-// import Products from "./pages/Products";
-// import Industries from "./pages/Industries";
-// import Exhibition from "./pages/Exhibition";
-// import Download from "./pages/Download";
-// import Contact from "./pages/Contact";
-import "./App.css";
 import Products from "./pages/Products";
+import ContactUS from "./pages/ContactUS";
+import Industries from "./pages/Industries.JSX";
+// import Download from "./pages/Download";
 
 function App() {
   return (
@@ -21,10 +19,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
-          {/* <Route path="/industries" element={<Industries />} /> */}
+          <Route path="/industries" element={<Industries />} />
           {/* <Route path="/exhibition" element={<Exhibition />} /> */}
           {/* <Route path="/download" element={<Download />} /> */}
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/contact" element={<ContactUS />} />
         </Routes>
       </main>
       

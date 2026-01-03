@@ -72,13 +72,6 @@ const products = [
   },
 ];
 
-// Status badge colors
-const statusColors = {
-  "IN STOCK": "bg-[#0F3D2E] text-[#15CC63]",
-  "LOW STOCK": "bg-[#3D3B0F] text-[#FFCC00]",
-  "OUT OF STOCK": "bg-[#261818] text-[#FF3B30]",
-};
-
 export default function ProductDetails() {
   const { id } = useParams();
   const product = products.find((p) => p.id === parseInt(id));
@@ -97,6 +90,15 @@ export default function ProductDetails() {
 
   return (
     <section className="py-24 px-6 text-white font-inter min-h-screen flex flex-col items-center">
+      {/* Go Back Button */}
+      <div className="w-full max-w-5xl mb-8">
+        <Link to="/products">
+          <button className="py-3 px-6 text-lg font-semibold rounded-xl text-white cursor-pointer bg-gradient-to-r from-[#033F83CC] to-[#044B9D] transition hover:opacity-90">
+            &larr; Go Back
+          </button>
+        </Link>
+      </div>
+
       {/* Product Card */}
       <div className="max-w-5xl w-full flex flex-col md:flex-row gap-10 md:gap-16">
         {/* Image */}
@@ -173,7 +175,7 @@ export default function ProductDetails() {
               </button>
             </div>
             <form className="space-y-6">
-              {["Name", "Email", "Subject"].map((placeholder, index) => (
+              {["Name", "Email", "Phone Number"].map((placeholder, index) => (
                 <input
                   key={index}
                   type="text"

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // <-- import Link
 
-// Sample product data
+// Sample product data with IDs
 const products = [
   {
+    id: 1,
     img: "/titanium-dioide1.png",
     title: "Titanium Dioxide",
     cas: "13463-67-7",
@@ -10,6 +12,7 @@ const products = [
     status: "IN STOCK",
   },
   {
+    id: 2,
     img: "/titanium-dioide2.png",
     title: "Titanium Dioxide",
     cas: "13463-67-7",
@@ -17,6 +20,7 @@ const products = [
     status: "IN STOCK",
   },
   {
+    id: 3,
     img: "/titanium-dioide3.png",
     title: "Titanium Dioxide",
     cas: "13463-67-7",
@@ -24,6 +28,7 @@ const products = [
     status: "LOW STOCK",
   },
   {
+    id: 4,
     img: "/titanium-dioide4.png",
     title: "Titanium Dioxide",
     cas: "13463-67-7",
@@ -31,6 +36,7 @@ const products = [
     status: "IN STOCK",
   },
   {
+    id: 5,
     img: "/titanium-dioide5.png",
     title: "Titanium Dioxide",
     cas: "13463-67-7",
@@ -38,6 +44,7 @@ const products = [
     status: "OUT OF STOCK",
   },
   {
+    id: 6,
     img: "/titanium-dioide6.png",
     title: "Titanium Dioxide",
     cas: "13463-67-7",
@@ -46,14 +53,12 @@ const products = [
   },
 ];
 
-// Map status to badge colors
 const statusColors = {
   "IN STOCK": "bg-[#0F3D2E] text-[#15CC63]",
   "LOW STOCK": "bg-[#3D3B0F] text-[#FFCC00]",
   "OUT OF STOCK": "bg-[#261818] text-[#FF3B30]",
 };
 
-// Filters
 const filters = ["All Industries", "Paints", "Construction", "Plastics"];
 
 export default function MaterialCatalog() {
@@ -62,10 +67,8 @@ export default function MaterialCatalog() {
   return (
     <section className="py-24 px-6 text-white font-inter">
       <div className="flex justify-between flex-wrap">
-        {/* Heading */}
         <h2 className="text-[48px] font-medium mb-8">Material Catalog</h2>
 
-        {/* Filters */}
         <div className="flex gap-4 mb-12 flex-wrap">
           {filters.map((filter) => (
             <button
@@ -83,12 +86,12 @@ export default function MaterialCatalog() {
         </div>
       </div>
 
-      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((product, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer  rounded-[8px]"
+        {products.map((product) => (
+          <Link
+            key={product.id}
+            to={`/products/${product.id}`} // <-- navigate to details page
+            className="flex flex-col transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer rounded-[8px]"
           >
             <img
               src={product.img}
@@ -111,7 +114,7 @@ export default function MaterialCatalog() {
               <p>CAS: {product.cas}</p>
               <p>{product.purity}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

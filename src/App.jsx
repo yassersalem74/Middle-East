@@ -9,6 +9,7 @@ import ContactUS from "./pages/ContactUS";
 import IndustriesPage from "./pages/IndustriesPage";
 import Exhibition from "./pages/Exhibition";
 import ScrollToTop from "./components/ScrollToTop";
+import ProductDetails from "./components/Products-Components/ProductDetails";
 
 // import Download from "./pages/Download";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetails />} /> 
           <Route path="/industries" element={<IndustriesPage />} />
           <Route path="/exhibition" element={<Exhibition />} />
           {/* <Route path="/download" element={<Download />} /> */}

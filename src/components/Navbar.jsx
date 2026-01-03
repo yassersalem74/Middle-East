@@ -2,15 +2,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+  // NavLink class with gradient underline
   const navItemClass = ({ isActive }) =>
-    `relative transition-colors duration-300 ${
-      isActive ? "text-[#6893C4]" : "text-white"
-    } hover:text-[#6893C4] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-[#6893C4] after:transition-all after:duration-300 ${
-      isActive ? "after:w-full" : "after:w-0 hover:after:w-full"
-    }`;
+    `relative transition-all duration-500 text-white
+     after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] 
+     after:rounded-full after:bg-gradient-to-r after:from-[#05B24C] after:via-[#05B24C] after:to-[#1263be] 
+     after:transition-all after:duration-500
+     ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"}`;
 
   return (
-    <nav className="navbar  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4 py-4 sm:px-12  fixed top-0 left-0 right-0 z-50">
+    <nav className="navbar bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4 py-4 sm:px-12 fixed top-0 left-0 right-0 z-50">
       {/* ===== Left / Mobile ===== */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -65,7 +66,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        
+
         {/* Logo */}
         <NavLink to="/" className="flex items-center">
           <img
@@ -118,7 +119,7 @@ export default function Navbar() {
           to="/contact"
           className="relative p-[2px] rounded-3xl bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C] transition-all duration-300 hover:shadow-[0_0_12px_rgba(5,178,76,0.6)]"
         >
-          <span className="flex items-center justify-center px-6 py-2.5 rounded-3xl text-white font-medium text-lg bg-gradient-to-r from-[#81A5CE] via-[#43B88D] to-[#05B24C] transition-all duration-300 hover:bg-transparent">
+          <span className="flex items-center justify-center px-6 py-2.5 rounded-3xl text-white font-medium text-lg">
             Contact Us
           </span>
         </NavLink>
@@ -126,3 +127,7 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+
+// bg-gradient-to-r from-[#05B24C] via-[#044B9D] to-[#05B24C]

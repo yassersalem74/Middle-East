@@ -1,44 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { IndustriesAPI } from "../../api/api"; 
+// 👆 adjust path if file is inside components folder
 
 export default function IndustriesCategory() {
-  const items = [
-    {
-      title: "Paints & Coatings",
-      desc: "High-performance raw materials used in decorative, industrial, and protective coatings to ensure durability, finish quality, and consistency.",
-      img: "/paints-coatings.png",
-    },
-    {
-      title: "Construction",
-      desc: "Specialty chemicals that enhance the performance of concrete, adhesives, waterproofing systems, and construction solutions.",
-      img: "/Construction.png",
-    },
-    {
-      title: "Ink Industry",
-      desc: "Raw materials designed to support ink formulation for printing, packaging, and industrial applications with reliable color and performance.",
-      img: "/Inkndustry.png",
-    },
-    {
-      title: "Foam Industry",
-      desc: "Chemical solutions used in flexible and rigid foam applications, offering efficiency, durability, and consistent quality.",
-      img: "/Foam-Industry.png",
-    },
-    {
-      title: "Plastics",
-      desc: "Chemical raw materials that support plastic manufacturing processes, improving strength, flexibility, and product performance.",
-      img: "/Plastics.png",
-    },
-    {
-      title: "Adhesives",
-      desc: "Reliable raw materials for adhesive formulations used across packaging, construction, automotive, and industrial sectors.",
-      img: "/Adhesives.png",
-    },
-  ];
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const fetchIndustries = async () => {
+      try {
+        const res = await IndustriesAPI.getAll();
+        if (mounted) setItems(res.data);
+      } catch {
+        // silent fail (no UI change requested)
+      }
+    };
+
+    fetchIndustries();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <section className="flex flex-wrap gap-8 p-6 pb-24">
-      {items.map((item, index) => (
+      {items.map((item) => (
         <div
-          key={index}
+          key={item.id}
           className="
             relative group
             w-full md:w-[calc(50%-16px)]
@@ -48,9 +38,9 @@ export default function IndustriesCategory() {
             flex flex-col
             gap-12
             overflow-hidden
-              hover:bg-[#15cc63]
-                    transition-all
-              duration-500
+            hover:bg-[#15cc63]
+            transition-all
+            duration-500
           "
         >
           {/* CARD GRADIENT BORDER */}
@@ -66,7 +56,6 @@ export default function IndustriesCategory() {
               group-hover:scale-100
               transition-all
               duration-500
-              
             "
             style={{
               background: "linear-gradient(90deg, #0d361e, #044B9D, #05B24C)",
@@ -101,7 +90,7 @@ export default function IndustriesCategory() {
             />
 
             <img
-              src={item.img}
+              src={item.imageUrl}
               alt={item.title}
               className="relative w-16 h-16 object-contain z-10"
             />
@@ -112,7 +101,9 @@ export default function IndustriesCategory() {
             <h3 className="text-white font-semibold text-[32px] mb-4">
               {item.title}
             </h3>
-            <p className="text-white font-normal text-[24px]">{item.desc}</p>
+            <p className="text-white font-normal text-[24px]">
+              {item.description}
+            </p>
           </div>
         </div>
       ))}

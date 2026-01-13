@@ -1,59 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { IndustriesAPI } from "../../api/api";
 
 export default function ServiceSection() {
+  const [industries, setIndustries] = useState([]);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const fetchIndustries = async () => {
+      try {
+        const res = await IndustriesAPI.getAll();
+        if (mounted) setIndustries(res.data);
+      } catch {
+        console.log("error")
+      }
+    };
+
+    fetchIndustries();
+    return () => (mounted = false);
+  }, []);
+
   return (
-    <section className="py-16 ">
+    <section className="py-16">
       <div className="text-center">
-        <h2 className="text-4xl font-bold mb-4 text-white">Industries We Serve</h2>
+        <h2 className="text-4xl font-bold mb-4 text-white">
+          Industries We Serve
+        </h2>
         <p className="text-gray-400 mb-12 text-2xl">
           Serving diverse industries across multiple applications
         </p>
       </div>
 
-      <div className="flex gap-4 flex-wrap justify-center">
-        <div className="flex flex-col gap-4  items-center justify-center w-[250px] h-[340px] bg-[#B4C9E233] rounded-3xl">
-          <div>
-            <img src="PaintPalette.png" alt="paint-palette" />
-          </div>
-          <div className="text-2xl text-white text-center">Paints & Coatings Industry</div>
-        </div>
+      <div className="flex gap-6 flex-wrap justify-center">
+        {industries.map((item) => (
+          <div
+            key={item.id}
+            className="
+              group
+              flex flex-col gap-4 items-center justify-center
+              w-[250px] h-[340px]
+              bg-[#B4C9E233]
+              rounded-3xl
+              transition-all duration-300 ease-out
+              hover:-translate-y-3
+              hover:shadow-[0_12px_30px_rgba(21,204,99,0.6)]
+              hover:bg-[#3df58d20]
+            "
+          >
+            {/* Image */}
+            <img
+              src={item.imageUrl}
+              alt={item.title}
+              className="
+                w-20 h-20 object-contain
+                transition-transform duration-300
+                group-hover:-translate-y-2 group-hover:scale-110
+              "
+            />
 
-        <div className="flex flex-col gap-4  items-center justify-center w-[250px] h-[340px] bg-[#B4C9E233] rounded-3xl">
-          <div>
-            <img src="Company.png" alt="company" />
+            {/* Title */}
+            <div className="
+              text-2xl text-white text-center font-medium
+              transition-colors duration-300
+              group-hover:text-[#15CC63]
+            ">
+              {item.title}
+            </div>
           </div>
-          <div className="text-2xl text-white  text-center">
-            Construction & Building Materials
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-4  items-center justify-center w-[250px] h-[340px] bg-[#B4C9E233] rounded-3xl">
-          <div>
-            <img src="Soap.png" alt="Soap" />
-          </div>
-          <div className="text-2xl text-white text-center">Foam & Insulation Industry</div>
-        </div>
-
-        <div className="flex flex-col gap-4  items-center justify-center w-[250px] h-[340px] bg-[#B4C9E233] rounded-3xl">
-          <div>
-            <img src="CopyMachine.png" alt="Copy-Machine" />
-          </div>
-          <div className="text-2xl text-white text-center">Ink & Printing Industry</div>
-        </div>
-
-        <div className="flex flex-col gap-4  items-center justify-center w-[250px] h-[340px] bg-[#B4C9E233] rounded-3xl">
-          <div>
-            <img src="Package.png" alt="Package" />
-          </div>
-          <div className="text-2xl text-white text-center">Can Coating & Packaging</div>
-        </div>
-
-        <div className="flex flex-col gap-4  items-center justify-center w-[250px] h-[340px] bg-[#B4C9E233] rounded-3xl">
-          <div>
-            <img src="Plastic.png" alt="Plastic" />
-          </div>
-          <div className="text-2xl text-white text-center">Plastic & Polymer Industry</div>
-        </div>
+        ))}
       </div>
     </section>
   );

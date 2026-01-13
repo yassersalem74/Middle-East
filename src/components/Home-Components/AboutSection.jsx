@@ -2,7 +2,7 @@
 export default function AboutSection() {
   return (
     <section className="relative overflow-hidden  py-16 px-6 md:px-12">
-      <div className="flex justify-evenly flex-wrap lg:flex-nowrap gap-12 items-center">
+      <article className="flex justify-evenly flex-wrap lg:flex-nowrap gap-12 items-center">
         {/* Left Content */}
         <div className="text-white flex flex-col justify-between content-between ">
           <h2 className="text-3xl md:text-6xl font-bold mb-6">
@@ -45,7 +45,7 @@ export default function AboutSection() {
           </div>
         </div>
         {/* Right Image */}
-        <div className="relative flex justify-center lg:justify-end ">
+        <figure className="relative flex justify-center lg:justify-end ">
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/30">
             <img
               src="about-image-section.png"
@@ -53,8 +53,8 @@ export default function AboutSection() {
               className="w-full max-w-md lg:max-w-lg object-cover"
             />
           </div>
-        </div>
-      </div>
+        </figure>
+      </article>
     </section>
   );
 }

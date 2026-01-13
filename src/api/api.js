@@ -16,6 +16,8 @@ export const CategoriesAPI = {
 export const ProductsAPI = {
   getAll: () => api.get("/Products"),
 
+  getById: (id) => api.get(`/Products/${id}`),
+
 };
 
 // ===== Industries =====
@@ -45,3 +47,5 @@ export const TeamMembersAPI = {
   getAll: () => api.get("/TeamMembers"),
 
 };
+
+

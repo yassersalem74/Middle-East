@@ -25,26 +25,52 @@ const journeyData = [
 
 export default function OurJourney() {
   return (
-    <section className="py-24  text-white">
+    <section
+      aria-labelledby="journey-heading"
+      className="py-24 text-white"
+    >
       {/* Heading */}
-      <h2 className="text-4xl text-center font-bold mb-4">Our Journey</h2>
+      <h2
+        id="journey-heading"
+        className="text-4xl text-center font-bold mb-4"
+      >
+        Our Journey
+      </h2>
+
       <p className="text-[#B4C9E2] text-xl text-center mb-12">
         A timeline of growth and commitment
       </p>
 
       {/* Timeline */}
       <div className="max-w-6xl mx-auto px-6">
-        {/* Icons + Line */}
         <div className="flex flex-col lg:flex-row items-center justify-between">
+
           {journeyData.map((item, index) => (
             <React.Fragment key={index}>
-              {/* Item */}
-              <div className="flex flex-col items-center">
+              
+              {/* Timeline Item */}
+              <article className="flex flex-col items-center text-center">
+
                 {/* Icon */}
-                <div className="relative hover:bg-gradient-to-tr hover:from-[#044B9D] hover:to-[#05B24C] hover:border-amber-50 transition  duration-300  z-10 flex items-center justify-center w-20 h-20 rounded-full border border-white/40">
+                <div
+                  className="
+                    relative
+                    hover:bg-gradient-to-tr
+                    hover:from-[#044B9D]
+                    hover:to-[#05B24C]
+                    transition duration-300
+                    z-10 flex items-center justify-center
+                    w-20 h-20
+                    rounded-full
+                    border border-white/40
+                  "
+                >
                   <img
                     src={item.img}
-                    alt={item.title}
+                    alt={item.title + " milestone icon"}
+                    width="40"
+                    height="40"
+                    loading="lazy"
                     className="w-10 h-10 object-contain"
                   />
                 </div>
@@ -53,23 +79,25 @@ export default function OurJourney() {
                 <h3 className="mt-6 font-semibold text-[24px] text-[#8098C1]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-[16px] text-white text-center max-w-xs">
+
+                <p className="mt-2 text-[16px] text-white max-w-xs">
                   {item.desc}
                 </p>
-              </div>
+              </article>
 
-              {/* Line BETWEEN items */}
+              {/* Connector Line */}
               {index !== journeyData.length - 1 && (
                 <>
                   {/* Horizontal line (desktop) */}
-                  <div className="hidden lg:block flex-1 h-px bg-white/40 mx-4"></div>
+                  <div className="hidden lg:block flex-1 h-px bg-white/40 mx-4" aria-hidden="true"></div>
 
                   {/* Vertical line (mobile) */}
-                  <div className="lg:hidden w-px h-12 bg-white/40 my-6"></div>
+                  <div className="lg:hidden w-px h-12 bg-white/40 my-6" aria-hidden="true"></div>
                 </>
               )}
             </React.Fragment>
           ))}
+
         </div>
       </div>
     </section>

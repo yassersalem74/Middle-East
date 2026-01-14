@@ -1,4 +1,5 @@
 import HeroSection from "../components/Home-Components/HeroSection";
+import SliderImageSection from "../components/Home-Components/SliderImageSection";
 import WhyChooseUsSection from "../components/Home-Components/WhyChooseUsSection";
 import AboutSection from "../components/Home-Components/AboutSection";
 import ServiceSection from "../components/Home-Components/ServiceSection";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <SliderImageSection></SliderImageSection>
       <WhyChooseUsSection />
       <AboutSection />
       <ServiceSection />

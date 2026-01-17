@@ -54,7 +54,7 @@ export default function ProductDetails() {
       {/* ===== Back Button ===== */}
       <div className="w-full max-w-5xl mb-8">
         <Link to="/products">
-          <button className="py-3 cursor-pointer px-6 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-[#033F83CC] to-[#044B9D] transition hover:opacity-90">
+          <button className="btn btn-sm mb-8 bg-[#3C575D] text-white hover:bg-[#044B9D]">
             &larr; Go Back
           </button>
         </Link>

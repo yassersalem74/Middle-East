@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ProductsAPI, CategoriesAPI } from "../../api/api"; 
-// adjust path if needed
+import {
+  ProductsAPI,
+  CategoriesAPI,
+  IndustriesAPI,
+} from "../../api/api";
 
 const statusColors = {
   "IN STOCK": "bg-[#0F3D2E] text-[#15CC63]",
@@ -12,8 +15,10 @@ const statusColors = {
 export default function MaterialCatalog() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [industries, setIndustries] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedIndustry, setSelectedIndustry] = useState("all");
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,14 +29,16 @@ export default function MaterialCatalog() {
     let mounted = true;
 
     const fetchData = async () => {
-      const [prodRes, catRes] = await Promise.all([
+      const [prodRes, catRes, indRes] = await Promise.all([
         ProductsAPI.getAll(),
         CategoriesAPI.getAll(),
+        IndustriesAPI.getAll(),
       ]);
 
       if (mounted) {
         setProducts(prodRes.data);
         setCategories(catRes.data);
+        setIndustries(indRes.data);
       }
     };
 
@@ -40,12 +47,17 @@ export default function MaterialCatalog() {
   }, []);
 
   // ===== Filter Logic =====
-  const filteredProducts =
-    selectedCategory === "all"
-      ? products
-      : products.filter((p) => p.categoryId == selectedCategory);
+  const filteredProducts = products.filter((p) => {
+    const industryMatch =
+      selectedIndustry === "all" || p.industryId == selectedIndustry;
 
-  // ===== Pagination Logic =====
+    const categoryMatch =
+      selectedCategory === "all" || p.categoryId == selectedCategory;
+
+    return industryMatch && categoryMatch;
+  });
+
+  // ===== Pagination =====
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = filteredProducts.slice(
@@ -60,45 +72,94 @@ export default function MaterialCatalog() {
 
   return (
     <section className="py-24 px-6 text-white font-inter">
-      {/* ===== Header ===== */}
-      <div className="flex justify-between flex-wrap">
-        <h2 className="text-[48px] font-medium mb-8">Material Catalog</h2>
 
-        {/* ===== Category Filters ===== */}
-        <div className="flex gap-4 mb-12 flex-wrap">
-          {/* All */}
+      {/* ===== Header ===== */}
+      <h2 className="text-[48px] font-medium mb-8">
+        Material Catalog
+      </h2>
+
+      {/* ===== FILTERS ===== */}
+      <div className="flex flex-wrap gap-6 mb-12 items-center">
+
+        {/* ===== Industry Filter ===== */}
+        <div className="flex flex-wrap gap-3 items-center">
+          <span className="text-[#B4C9E2] text-sm font-semibold">
+            Industry:
+          </span>
+
           <button
             onClick={() => {
+              setSelectedIndustry("all");
               setSelectedCategory("all");
               setCurrentPage(1);
             }}
-            className={`px-4 py-2 rounded-md font-medium text-sm transition-all cursor-pointer duration-300 transform ${
-              selectedCategory === "all"
-                ? "bg-[#044B9D] text-white hover:bg-[#0362C1]"
-                : "bg-[#3C575D] text-white hover:bg-[#2f4a57] hover:scale-105"
+            className={`btn btn-sm ${
+              selectedIndustry === "all"
+                ? "bg-[#15CC63] text-black"
+                : "bg-[#3C575D] text-white hover:bg-[#2f4a57]"
             }`}
           >
-            All Industries
+            All
           </button>
 
-          {/* Dynamic Categories */}
-          {categories.map((cat) => (
+          {industries.map((ind) => (
             <button
-              key={cat.id}
+              key={ind.id}
               onClick={() => {
-                setSelectedCategory(cat.id);
+                setSelectedIndustry(ind.id);
+                setSelectedCategory("all"); // reset category
                 setCurrentPage(1);
               }}
-              className={`px-4 py-2 rounded-md font-medium text-sm transition-all cursor-pointer duration-300 transform ${
-                selectedCategory == cat.id
-                  ? "bg-[#044B9D] text-white hover:bg-[#0362C1]"
-                  : "bg-[#3C575D] text-white hover:bg-[#2f4a57] hover:scale-105"
+              className={`btn btn-sm ${
+                selectedIndustry == ind.id
+                  ? "bg-[#15CC63] text-black"
+                  : "bg-[#3C575D] text-white hover:bg-[#2f4a57]"
               }`}
             >
-              {cat.title}
+              {ind.title}
             </button>
           ))}
         </div>
+
+        {/* ===== Category Filter (Hidden until Industry selected) ===== */}
+        {selectedIndustry !== "all" && (
+          <div className="flex flex-wrap gap-3 items-center">
+            <span className="text-[#B4C9E2] text-sm font-semibold">
+              Category:
+            </span>
+
+            <button
+              onClick={() => {
+                setSelectedCategory("all");
+                setCurrentPage(1);
+              }}
+              className={`btn btn-sm ${
+                selectedCategory === "all"
+                  ? "bg-[#044B9D] text-white"
+                  : "bg-[#3C575D] text-white hover:bg-[#2f4a57]"
+              }`}
+            >
+              All
+            </button>
+
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  setCurrentPage(1);
+                }}
+                className={`btn btn-sm ${
+                  selectedCategory == cat.id
+                    ? "bg-[#044B9D] text-white"
+                    : "bg-[#3C575D] text-white hover:bg-[#2f4a57]"
+                }`}
+              >
+                {cat.title}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* ===== Products Grid ===== */}
@@ -121,7 +182,7 @@ export default function MaterialCatalog() {
               </h3>
 
               <span
-                className={`px-3 py-1 rounded-md font-medium text-[16px] ${
+                className={`px-3 py-1 rounded-md font-medium text-[14px] ${
                   statusColors[product.status || "IN STOCK"]
                 }`}
               >
@@ -129,7 +190,17 @@ export default function MaterialCatalog() {
               </span>
             </div>
 
-            <div className="mt-1 text-[#8098C1] font-normal text-[16px] flex justify-between px-1">
+            {/* Industry */}
+            <p className="text-[#15CC63] text-sm mt-1">
+              {product.industry?.title}
+            </p>
+
+            {/* Category */}
+            <p className="text-[#8098C1] text-sm">
+              {product.category?.title}
+            </p>
+
+            <div className="mt-1 text-[#8098C1] font-normal text-[15px] flex justify-between px-1">
               <p>CAS: {product.casNumber}</p>
               <p>{product.purity}</p>
             </div>
@@ -142,7 +213,7 @@ export default function MaterialCatalog() {
         <div className="flex justify-center mt-12 gap-2 flex-wrap">
           <button
             onClick={() => changePage(currentPage - 1)}
-            className="px-3 py-1 rounded-md bg-[#3C575D] text-white cursor-pointer hover:bg-[#044B9D]"
+            className="px-3 py-1 rounded-md bg-[#3C575D] text-white hover:bg-[#044B9D]"
           >
             &laquo;
           </button>
@@ -151,7 +222,7 @@ export default function MaterialCatalog() {
             <button
               key={i}
               onClick={() => changePage(i + 1)}
-              className={`px-3 py-1 rounded-md cursor-pointer ${
+              className={`px-3 py-1 rounded-md ${
                 currentPage === i + 1
                   ? "bg-[#044B9D] text-white"
                   : "bg-[#3C575D] text-white hover:bg-[#044B9D]"
@@ -163,7 +234,7 @@ export default function MaterialCatalog() {
 
           <button
             onClick={() => changePage(currentPage + 1)}
-            className="px-3 py-1 rounded-md bg-[#3C575D] text-white cursor-pointer hover:bg-[#044B9D]"
+            className="px-3 py-1 rounded-md bg-[#3C575D] text-white hover:bg-[#044B9D]"
           >
             &raquo;
           </button>

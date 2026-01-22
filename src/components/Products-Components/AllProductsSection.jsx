@@ -14,7 +14,7 @@ const statusColors = {
 
 export default function MaterialCatalog() {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]); // still loaded if needed elsewhere
   const [industries, setIndustries] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -46,7 +46,23 @@ export default function MaterialCatalog() {
     return () => (mounted = false);
   }, []);
 
-  // ===== Filter Logic =====
+  // ===== Build categories dynamically from products of selected industry =====
+  const filteredCategories =
+    selectedIndustry === "all"
+      ? []
+      : Array.from(
+          new Map(
+            products
+              .filter(
+                (p) =>
+                  p.industryId == selectedIndustry &&
+                  p.category
+              )
+              .map((p) => [p.category.id, p.category])
+          ).values()
+        );
+
+  // ===== Filter Products =====
   const filteredProducts = products.filter((p) => {
     const industryMatch =
       selectedIndustry === "all" || p.industryId == selectedIndustry;
@@ -107,7 +123,7 @@ export default function MaterialCatalog() {
               key={ind.id}
               onClick={() => {
                 setSelectedIndustry(ind.id);
-                setSelectedCategory("all"); // reset category
+                setSelectedCategory("all");
                 setCurrentPage(1);
               }}
               className={`btn btn-sm ${
@@ -121,8 +137,8 @@ export default function MaterialCatalog() {
           ))}
         </div>
 
-        {/* ===== Category Filter (Hidden until Industry selected) ===== */}
-        {selectedIndustry !== "all" && (
+        {/* ===== Category Filter (only categories that exist in this industry's products) ===== */}
+        {selectedIndustry !== "all" && filteredCategories.length > 0 && (
           <div className="flex flex-wrap gap-3 items-center">
             <span className="text-[#B4C9E2] text-sm font-semibold">
               Category:
@@ -142,7 +158,7 @@ export default function MaterialCatalog() {
               All
             </button>
 
-            {categories.map((cat) => (
+            {filteredCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => {
@@ -190,19 +206,17 @@ export default function MaterialCatalog() {
               </span>
             </div>
 
-            {/* Industry */}
             <p className="text-[#15CC63] text-sm mt-1">
               {product.industry?.title}
             </p>
 
-            {/* Category */}
             <p className="text-[#8098C1] text-sm">
               {product.category?.title}
             </p>
 
             <div className="mt-1 text-[#8098C1] font-normal text-[15px] flex justify-between px-1">
-              <p>CAS: {product.casNumber}</p>
-              <p>{product.purity}</p>
+              {product.casNumber && <p>CAS: {product.casNumber}</p>}
+              {product.purity && <p>{product.purity}</p>}
             </div>
           </Link>
         ))}

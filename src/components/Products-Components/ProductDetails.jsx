@@ -49,8 +49,15 @@ export default function ProductDetails() {
     );
   }
 
+  // ===== Check if any specification exists =====
+  const hasSpecs =
+    product.casNumber ||
+    product.purity ||
+    product.grade;
+
   return (
     <section className="py-24 px-6 text-white font-inter min-h-screen flex flex-col items-center">
+      
       {/* ===== Back Button ===== */}
       <div className="w-full max-w-5xl mb-8">
         <Link to="/products">
@@ -92,23 +99,33 @@ export default function ProductDetails() {
             {product.description}
           </p>
 
-          {/* Specifications */}
-          <div className="flex flex-wrap justify-between gap-4 md:gap-6 bg-[#3C575D66] rounded-3xl py-6 px-3 border border-[#B4C9E233]">
-            <div className="text-white">
-              <div className="font-semibold">CAS Number :</div>
-              <div className="text-[#5C8ABF]">{product.casNumber}</div>
-            </div>
+          {/* ===== Specifications (Only show if at least one exists) ===== */}
+          {hasSpecs && (
+            <div className="flex flex-wrap justify-between gap-4 md:gap-6 bg-[#3C575D66] rounded-3xl py-6 px-3 border border-[#B4C9E233]">
+              
+              {product.casNumber && (
+                <div className="text-white">
+                  <div className="font-semibold">CAS Number :</div>
+                  <div className="text-[#5C8ABF]">{product.casNumber}</div>
+                </div>
+              )}
 
-            <div className="text-white">
-              <div className="font-semibold">Purity :</div>
-              <div className="text-[#5C8ABF]">{product.purity}</div>
-            </div>
+              {product.purity && (
+                <div className="text-white">
+                  <div className="font-semibold">Purity :</div>
+                  <div className="text-[#5C8ABF]">{product.purity}</div>
+                </div>
+              )}
 
-            <div className="text-white">
-              <div className="font-semibold">Grade :</div>
-              <div className="text-[#5C8ABF]">{product.grade}</div>
+              {product.grade && (
+                <div className="text-white">
+                  <div className="font-semibold">Grade :</div>
+                  <div className="text-[#5C8ABF]">{product.grade}</div>
+                </div>
+              )}
+
             </div>
-          </div>
+          )}
 
           {/* CTA */}
           <button

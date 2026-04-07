@@ -1,8 +1,31 @@
-import React from 'react'
+import React from "react";
 
 export default function ContactUS() {
+  const contactData = [
+    {
+      icon: "location.png",
+      title: "LOCATION",
+      text: "Egypt, Cairo",
+    },
+    {
+      icon: "email.png",
+      title: "EMAIL",
+      text: "info@andmoresolutions-eg.com",
+    },
+    {
+      icon: "phone.png",
+      title: "PHONE",
+      text: "+201033714471",
+    },
+    {
+      icon: "calendar.png",
+      title: "SCHEDULE MEETING",
+      text: "All day, per week",
+    },
+  ];
+
   return (
-        <section className="py-16 ">
+    <section className="py-16 ">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">
@@ -19,17 +42,11 @@ export default function ContactUS() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* LEFT CARD */}
           <div className="rounded-2xl flex flex-col justify-center border border-[#E6EDF580] shadow-[0px_0px_6px_0px_white] p-6 space-y-6 bg-white/5">
-            {/* Item */}
-            {[
-              { icon: "location.png", title: "LOCATION" },
-              { icon: "email.png", title: "EMAIL" },
-              { icon: "phone.png", title: "PHONE" },
-              { icon: "calendar.png", title: "SCHEDULE MEETING" },
-            ].map((item, index) => (
+            {contactData.map((item, index) => (
               <div
                 key={index}
                 className="flex items-center gap-4 bg-[#3C575D] rounded-xl p-4
-                   duration-500
+                  duration-500
                   hover:bg-gradient-to-l
                   hover:from-[#05b24c]
                   hover:to-[#3c575d]"
@@ -44,7 +61,7 @@ export default function ContactUS() {
                     {item.title}
                   </p>
                   <p className="text-[#CDDBEB] text-base">
-                    Suadi Arabia, street 18
+                    {item.text}
                   </p>
                 </div>
               </div>
@@ -54,7 +71,6 @@ export default function ContactUS() {
           {/* RIGHT CARD */}
           <div className="rounded-2xl border border-[#E6EDF580] shadow-[0px_0px_6px_0px_white] p-6 bg-white/5">
             <form className="space-y-6">
-              {/* Input */}
               {["Name", "Email", "Subject"].map((placeholder, index) => (
                 <input
                   key={index}
@@ -75,7 +91,6 @@ export default function ContactUS() {
                 />
               ))}
 
-              {/* Textarea */}
               <textarea
                 rows="4"
                 placeholder="Message"
@@ -94,7 +109,6 @@ export default function ContactUS() {
                 "
               />
 
-              {/* Button */}
               <button
                 type="submit"
                 className="
@@ -107,8 +121,8 @@ export default function ContactUS() {
                   rounded-lg
                   cursor-pointer
                   border-transparent
-                    hover:bg-blue-200
-                    hover:[border-image:linear-gradient(to_left,#033F83CC,#044B9D)_1]
+                  hover:bg-blue-200
+                  hover:[border-image:linear-gradient(to_left,#033F83CC,#044B9D)_1]
                   hover:opacity-90
                   transition
                 "
@@ -120,5 +134,5 @@ export default function ContactUS() {
         </div>
       </div>
     </section>
-  )
+  );
 }

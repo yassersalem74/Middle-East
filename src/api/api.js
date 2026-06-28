@@ -48,4 +48,12 @@ export const TeamMembersAPI = {
 
 };
 
+// ===== CEOs =====
+export const CeosAPI = {
+  getAll: () => api.get("/Ceos"),
+
+  getById: (id) => api.get(`/Ceos/${id}`),
+
+};
+
 

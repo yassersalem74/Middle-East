@@ -7,10 +7,10 @@ export default function HeroSection() {
     <header>
       <section
         className="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center rounded-b-[40px] overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('here-image.png')" }}
+        style={{ backgroundImage: "url('new-home-landing-section.png')" }}
         aria-label="Hero Section"
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="relative z-10 max-w-5xl px-6 md:px-12 text-center mx-auto">
           <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight">

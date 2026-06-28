@@ -39,7 +39,7 @@ export default function WhoWeAre() {
           <figure className="flex flex-col items-center sm:items-end justify-center">
             <img
               className="w-[350px] h-[400px] rounded-2xl object-cover"
-              src="aboutUs-who-we-are.png"
+              src="about-who-we-are-section.jpg"
               alt="Middle East Egypt facility"
               width="350"
               height="400"

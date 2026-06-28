@@ -48,7 +48,7 @@ export default function AboutSection() {
         <figure className="relative flex justify-center lg:justify-end ">
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/30">
             <img
-              src="about-image-section.png"
+              src="new-home-about-section.png"
               alt="Middle East Egypt Overview"
               className="w-full max-w-md lg:max-w-lg object-cover"
             />

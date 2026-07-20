@@ -5,22 +5,22 @@ export default function ContactUS() {
     {
       icon: "location.png",
       title: "LOCATION",
-      text: "Egypt, Cairo",
+      text: "26 Ali Amin St., Extension of Mostafa Al-Nahas, First District, Nasr City, Cairo, Egypt",
     },
     {
       icon: "email.png",
       title: "EMAIL",
-      text: "info@andmoresolutions-eg.com",
+      text: "sales.z@middleeastegypt.com",
     },
     {
       icon: "phone.png",
       title: "PHONE",
-      text: "+201033714471",
+      text: "+201026858889",
     },
     {
-      icon: "calendar.png",
-      title: "SCHEDULE MEETING",
-      text: "All day, per week",
+      icon: "phone.png",
+      title: "PHONE",
+      text: "02/20801333",
     },
   ];
 
@@ -29,12 +29,11 @@ export default function ContactUS() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Get in Touch with Us
-          </h2>
           <p className="text-gray-400 text-2xl">
-            Contact Middle East Egypt for any questions or additional
-            information.
+            Thank you for your interest in Middle East Egypt. Whether you have
+            inquiries about our chemical and petrochemical trading services,
+            need a commercial quotation, or require additional information
+            about our products, our team is ready to assist you.
           </p>
         </div>
 

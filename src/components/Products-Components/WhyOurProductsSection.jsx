@@ -57,19 +57,19 @@ const WhyOurProducts = () => {
       icon: "champion-icon.png",
       title: " High-quality",
       description:
-        "Premium chemical raw materials raw materials Premium chemical raw materials  raw materials  ",
+        "Premium chemical raw materials raw materials ",
     },
     {
       icon: "trusted-icon.png",
       title: "Trusted global",
       description:
-        "Partnerships with international producers Partnerships with international   producers",
+        "Partnerships with international producers ",
     },
     {
       icon: "consistent.png",
       title: "Consistent",
       description:
-        "Reliable stock and fast delivery whenever you needReliable stock and fast delivery whenever you need",
+        "Reliable stock and fast delivery whenever you need",
     },
   ];
 

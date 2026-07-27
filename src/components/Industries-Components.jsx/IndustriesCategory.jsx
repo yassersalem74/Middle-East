@@ -70,7 +70,7 @@ export default function IndustriesCategory() {
             <img
               src={item.imageUrl}
               alt={item.title}
-              className="relative w-16 h-16 object-contain z-10"
+              className="relative w-48 h-48 object-contain z-10"
               loading="lazy"
             />
           </div>
